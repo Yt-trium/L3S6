@@ -1,0 +1,50 @@
+\paragraph{}
+Ensemble : un ensemble est une "collection" d'objet.\\
+Exemples : Les entiers 1,3,5,7,9 constitue une collection des impaires $\leq$ 9, on peut le noter $\{1,3,5,7,9\}$\\
+L'ordre des éléments n'est pas important.\\
+Il ne peut pas y avoir de répétition.\\
+Exemple d'ensembles connu : $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$ 
+
+\subsection{Paradoxe de Russel}
+\begin{math}
+	R = \{x | x \notin x\},
+	R \in R => R \notin R,
+	R \notin R => R \in R
+\end{math}
+Le paradoxe a conduit a une avancé dans les axiom de la théorie des essembles (Zermelo Fraenkel)
+
+\paragraph{}
+\subsection{Opération sur les ensembles}
+Pour dire qu'un élément $e$ est dans un ensemble $E$, on écrit $e \in E$\\
+Pour dire qu'un ensemble $E$ est inclus dans un ensemble F on écrit $E \subseteq F$\\
+Lorsque $E \neq F$ et $E \subseteq F$ on écrit $E \subset F$\\
+\paragraph{}
+Soit $A$ et $B$ deux ensemble.
+\begin{itemize}
+	\item non$(e \in B) = e \notin B$
+	\item $A \cup B = \{e | e \in A$ ou $e \in B\}$ = Union
+	\item $A \cap B = \{e | e \in A$ et $e \in B\}$ = Intersection
+	\item $A \setminus B = \{e | e \in A$ et non$(e \in B)\}$
+	\item $P(A) = \{E | E \subseteq A\}$ = l'ensemble des parties de A.
+	\item $A \times B = \{(a,b) | a \in A $et$b \in B\}$ le produit cartésien de A,B
+	\\(couple $(a,b) -> \{a,\{a,b\}\}$)
+	\item $A_1, A_2, ..., A_n , n\geq$ sont des ensembles, alors\\
+	$A_1 \times A_2 \times ... \times A_n = \{(a_1, a_2, ..., a_n) | a_1 \in A_1 \times ... \times a_n \in A_n\}$
+\end{itemize}
+
+\paragraph{}
+Définition : soient A un ensemble et $\Pi \subseteq P(A)$\\
+$\Pi = \{B_1, ..., B_n, ...\}$ est une portion de A si $B_i \cap B_j = \emptyset$\\
+$B_i \neq \emptyset$ pour tout $i$\\
+$A = B_1 \cup B_2 \cup ... \cup B_n \cup ... = U_{iEI}B_i$\\
+$A = \{1,3,5,7,9\}$
+Si $\Pi = \{\{1,5\},\{7\},\{3,9\}\}$, alors $\Pi$ est une partition de $A$.\\
+
+\paragraph{}
+Remarque : soient $A$, $B$ et $C$ des ensembles.
+\begin{enumerate}
+	\item $A = B <=> A \subseteq B $ et $ B \subseteq A$
+	\item $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+	\item $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+	-> Ce sont les lois de De Morgan.
+\end{enumerate}
