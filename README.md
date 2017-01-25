@@ -6,6 +6,7 @@ Notes de Cours / Projet / Documents | S6 Printemps 2017 Université de Strasbour
 #### ENG : Anglais pour l'informatique
 
 #### GL : Génie logiciel
+Professeur : Witz Regis
 
 #### SD : Systèmes distribués
 
