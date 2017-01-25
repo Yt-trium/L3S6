@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{tikz}
+\usepackage{stmaryrd}
+
 \usetikzlibrary{arrows}
 
 \title{Théorie des langages}
@@ -27,10 +29,49 @@
 	\input{def_formel_lang}
 \section{Ensemble}
 	\input{ensemble}
-\section{Relation}
+\section{Relation et Fonction}
 	\input{relation}
+\section{Cardinalité}
+	\input{cardinalite}
+\paragraph{}
+Rappel de notation :\\
+Soit $a$ et $b \in \mathbb{Z}\;\llbracket a,b \rrbracket$ = $\{n \in \mathbb{Z}\;|\; 0\leq n\leq b\}$\\
+$\to \llbracket \rrbracket$ intervale entier\\
+$\to \llbracket 1,0 \rrbracket = \{\} = \emptyset$\\
+\paragraph{}
+Définition : deux ensemble $A$ et $B$ sont dit de même cardinalité si il existe une bijection de f de A dans B.
+\paragraph{}
+Remarque : être de même cardinalité est une relation symétrique.\\
+Un ensemble A est dit de cardinal fini si il existe un entier $n \geq 0$ tel qu'il existe une bijection : $\llbracket 1,n \rrbracket \to A$ et donc ce $n$ est appelé le cardinal de $A$
+\paragraph{}
+Notes : Le cardinal = le nombre d'élément de l'ensemble fini\\
+\paragraph{}
+Cardinal non fini :\\
+Un ensemble A est dit de cardinal infini si A n'est pas de cardinal fini.\\
+Un ensemble est dit infini dénombrable s'il existe une bijection $f\; N \to A$\\
 
+\paragraph{}
+Exemple :\\
+$P = \{2n\;|\;n \in \mathbb{N}\} \subset \mathbb{N}$\\
+$f : \mathbb{N}\to P\;\;\;n\to 2n$\\
+$f$ est bijective et donc $P$ est un ensemble infini dénombrable.\\$\mathbb{N} \times \mathbb{N} = \mathbb{N}^2$ est un ensemble infini dénombrable.\\
+$f(i,j)=1+2+...+(i+j))+i= (\sum_{k=1}^{i+j}k)+i $\\$= 1/2 (i+j)(i+j+1)+i $\\$=1/2 ((i+j)^2+3i+j)$\\
+Montrons alors que $f$ est une bijection.
 
+$\to f$ surjectif
+Soit $h \in \mathbb{N}$, supposons qu'il existe $(i,j) \in \mathbb{N}^2$ tel que $f(i,j) = k$\\
+$\exists!$ (existe-t-il) $(i',j') \in \mathbb{N}^2$ tel que $f(i',j')=k+1$\\
+Deux cas possible :\\
 
+1. $j>0$ alors $f(i+1,j-1)=(\sum_{h=0}^{(i+j)+(j-1)}h)+i+1$\\
+$=((\sum_{h=1}^{i+j}h)+i)+1 = k+1 = f(i,j)+1$\\
+2. $j=0$ alors $f(j,i+1)=(\sum_{h=1}^{(j+i+1)}h)+j$\\
+$=(\sum_{h=1}^{i+1}h) = (\sum_{h=1}^{i}h)+(i+1)$\\
+$=((\sum_{h=1}^{i+j}h)+i)+1$\\
+$=f(i,j)+1 = k+1$\\
+\paragraph{}
+Par induction, comme f(0,0) = 0 et on peut trouver k+1, f est surjectif.
+
+$\to f$ injectif
 
 \end{document}

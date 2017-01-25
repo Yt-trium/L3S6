@@ -1,0 +1,45 @@
+
+Soient $A_1,A_2, ...,A_n\;n$ ensembles $(n\geq1)$
+Une relation n-aire (d'arité n) $R$ est un sous ensemble de $A_1 \times A_2 \times ... \times A_n\;(R\subseteq A_1 \times A_2 \times ... \times A_n)$
+Pour $n=2 R$ est dite une relation binaire.\\
+\paragraph{}
+Exemple :\\
+$R_1 = \{a \in \mathbb{Z} \;|\;a $ est impaire $\} \subseteq \mathbb{Z}$ (relation d'arité 1) $= \{...,-5,-3,-1,1,3,5,...\}$\\
+$R_2 = \{(a,b)\in\mathbb{Z}^2 \;|\; a \leq b\}$ (relation d'arité 2) sur $\mathbb{Z}^2$\\
+$R_3 = \{(a,b,c)\in\mathbb{Z}^3 \;|\; a \leq b \leq c \}$ (relation d'arité 3) sur $\mathbb{Z}^3$\\
+
+\paragraph{}
+Définition (relation fonctionnelle)
+Soit $R$ une relation n-aire sur $A_1,A_2, ...,A_n\;n$ pour $n \geq 2$\\
+Si pour tout (n-1)-uplet $(a_1,...,a_{n-1})\in A_1 \times A_2 \times ... \times A_{n-1}$ il existe un et un seul élément $a_n \in A_n$ tel que $(a_1,...,a_{n-1},a_n) \in R$ on dit alors que $R$ est une relation fonctionnelle relativement à $A_1 \times ... \times A_{n-1}$ et on utilise la notation $f_R : A_1 \times .. \times A_{n-1} \to A_n$ et pour tout $(a_1, ..., a_{n-1}) \in A_1 \times ... \times A_{n-1}$ l'unique élément $a_n \in A_n$ tel que $(a_1,...,a_{n-1},a_n) \in R sera noté f_R (a_1,..., a_{n-1})$\\
+$(a_n = f_R (a_1,...,a_{n-1}))$\\
+$f_R$ est appelé la fonction associée à la relation fonctionnel R.\\
+$A_1 \times ... \times A_{n-1}$ est appelé le domaine de $f_R$ (ensemble de départ)\\
+$A_n$ est appelé l'ensemble d'arriver de $f_R$.\\
+\paragraph{}
+Exemple de relation fonctionnelle.
+
+\begin{itemize}
+	\item $R_1 = \{(x,y)\;|\; x \in A\}$ ($f_{R_1}$ est appelé identité sur $A$)
+	\item $R_2 = \{(x,y,x+y)\;|\; x,y \in \mathbb{Z}\}$\\
+	($f_{R_2} : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ avec $f_{R_2}(x,y)=x+y$)
+\end{itemize}
+
+\paragraph{}
+Remarque : chaque fonction correspond à une et une seul relation fonctionnel.\\
+a $f: A_1 \times ... \times A_{n-1} \to A_n$ on associe la relation :\\
+$R_f = \{(a_1,...,a_{n-1}, f(a1,...,a_{n-1}))\;|\; (a_1,...,a_{n-1}) \in A_1 \times ... \times A_{n-1}\}$
+
+\paragraph{}
+Définitions : soit $A$ et $B$ deux ensembles et $f : A \to B$
+
+\begin{enumerate}
+	\item f est dite injective si $\forall a, a' \in A$ si $a \neq a'$ alors $f(a) \neq f(a')\;
+	(\to\; $on dit que f est une injection de A dans B)
+	\item f est dite surjective si $\forall b \in A, \exists a \in A $ tel que $f(a) = b\;
+	(\to\; $on dit que f est une surjection de A dans B$)$
+	\item f est dite bijective si elle est à la foi injective et surjective.
+	$(\to\; $on dit que f est une bijection de A dans B$)$
+\end{enumerate}
+
+Lorsque $f$ est bijective alors $f^{-1}$ est la fonction de $B \to A$ tel que $\forall a \in A, \forall b \in B$, $f(a) = b$ si et seulement si $f^{-1}(b) = a$
