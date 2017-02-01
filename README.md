@@ -6,12 +6,13 @@ Notes de Cours / Projet / Documents | S6 Printemps 2017 Université de Strasbour
 #### ENG : Anglais pour l'informatique
 
 #### GL : Génie logiciel
-Professeur : Witz Regis
+Enseignant : Witz Regis
 
 #### SD : Systèmes distribués
+Enseignant : Frey Gabriel
 
 #### TL : Théorie des langages
-Professeur : Tajine Mohamed
+Enseignant : Tajine Mohamed
 
 ### UE obligatoires à choix
 
