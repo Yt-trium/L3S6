@@ -1,0 +1,65 @@
+Intelligence Artificiel
+============
+
+## Systèmes Experts
+
+##### Systèmes Experts à logique floue
+
+- En logique floue, on affichera toutes les conclusions, avec leur fiabilité.
+- MYCIN (un des premier SE opérationnel dès 1975) utilisait de la logique flou
+
+##### Conclusion sur les Systèmes Experts
+- Problèmes essentiel : récupérer la connaissance d'un expert
+Peut on créer des règles à partir d'exemples ?
+- Réponse : système de classeur, qui élaborent des règles par méthode évolutionnaire.
+
+##### Prolog (PROgrammer en LOGique)
+- 1972 : création de PROLOG (français)
+
+Mise en oeuvre :
+- Un atome logique exprime une relation entre des termes qui peut être vraie ou fausse.
+- Suite de clauses regroupées en paquets, l'ordre n'est pas significatif
+- Caque paquet définit un "prédicat" constitué d'un ensemble de clauses.
+
+Il s'agit de poser une question a l'interprète PROLOG qui répond par "yes" ou "no"
+Une question peut comporter des variables, auquel cas la réponse de PROLOG est l'ensemble des valeurs vérifiant le programme.
+
+Exemple de faits et règles :
+- Faits : X frère de Y
+- Règles : Le frère du père est l'oncle
+
+Base de faits :
+x+y -> z
+Codage des faits :
+homme(x), femme(y), homme(z)
+Règles :
+parent(x,y) :- enfant(y,x)
+pere(x,y) :- parent(x,y),homme(x)
+
+
+## Entropie d'un système d'information
+
+En 1948, Claude Shannon à écrit un papier sur l'entropie des systèmes d'informations "A Mathematical Theory of Communication".
+
+En Informatique, l'information est codé par des signaux électriques 0,1 etc.
+
+Dans un premier temps, il apparaît impossible de coder une valeur sur un nombre non entier de bits, c'est néanmoins intellectuellement intéressant de déterminer le nombre de bits qu'il faudrait utiliser pour coder un alphabet contenant un nombre de lettres n'étant pas une puissance de 2.
+
+En thermodynamique, l'entropie est une fonction introduite en 1865 servant à mesurer le degré de désordre d'un système. Plus l'entropie est élevée, plus les élément du système sont désordonnés.
+S = Kb ln(omega), ou Kb = 1.38.10^-23 J.K^-1.
+
+Entropie maximum : équiprobabilité pour que n'importe quoi soit n'importe ou.
+L'entropie d'un système est égal a la somme de l'entropie des parties.
+
+Pour calculer l'entropie d'un système informatique, il propose de faire comme Boltzmann mais avec quelques modifications :
+
+a) Il propose d'utiliser un logarithme à base 2 plutôt qu'un logarithme népérien.
+Rappel, le logarithme est l'inverse de la fonction puissance. Si 2^3 = 8 alors log2(8) 3 (pour une base donné)
+Une autre interprétation est que le logarithme à base n renvoie le nombre de chiffre qu'il faut pour coder un nombre en base n. Pour représenter 1000 chiffres en base 10 il faut log10(1000) = 3 chiffres
+
+b) Il propose de remplacer la constante de Boltzmann par la probabilité d'apparition d'un état, et la valeur omega par l'inverse de la la probabilité d'apparition
+
+H(f) = Somme de v=1 à n pour p(v)log2(1/p(v))
+H(f) = - Somme de v=1 à n pour p(v)log2p(v)
+
+
