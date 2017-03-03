@@ -97,6 +97,7 @@ double max(double x, double y)
 
 bool inter_segment(point A, point B, point C, point D)
 {
+  double e = 0.00000000001;
   double S1 = det(A,B,C);
   double S2 = det(A,B,D);
   double S3 = det(C,D,A);
@@ -109,9 +110,9 @@ bool inter_segment(point A, point B, point C, point D)
     (B.x == D.x && B.y == D.y))
       return true;
 
-  // 0.00000000001 : because of dead floating point
+  // e : because of dead floating point
 
-  if(((S1 * S2) <= 0.00000000001) && ((S3 * S4) <= 0.00000000001))
+  if(((S1 * S2) <= e) && ((S3 * S4) <= e))
   {
     if(S1 == 0)
     {
