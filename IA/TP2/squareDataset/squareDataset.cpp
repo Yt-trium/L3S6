@@ -24,11 +24,11 @@ void squareDataset(std::string filename)
   }
   */
 
-  for(x=-100;x<100.001;x+=2)
+  for(x=-100;x<100.001;x+=0.1)
   {
     fx = square(x);
     line.clear();
-    line = std::to_string(x) + ',' + std::to_string(fx) + '\n';
+    line = std::to_string(x/10000) + ',' + std::to_string(fx/10000) + '\n';
     out << line;
   }
   

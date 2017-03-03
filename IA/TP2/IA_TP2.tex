@@ -269,7 +269,7 @@ Conclusion : Les résultats ne sont pas positifs.
 Je commence tout d'abord en crée plusieurs réseaux de neurones multi-couches, le problème $f(x)=x^2$ est un problème qui n'est pas linéairement séparable, donc impossible a résoudre avec un perceptron mono-couche.
 
 J'ai choisis de tester différent dataset. Respectivement, 21, 101, 302 et 704 exemples. Les dataset sont disponible sous les noms : "dataset\_SQUARE\_xxx"
-Ces dataset sont crée avec le programme "squareDataset".
+Ces dataset sont crée avec le programme "squareDataset" disponible avec le dossier.
 
 Ces premiers tests me permettent de comprendre quels réseaux et quels dataset choisir pour les tests suivants qui seront plus précis.
 
@@ -426,7 +426,7 @@ Petite note intéressantes, voici le graph d'erreur d'un perceptron multicouche 
 \includegraphics[height=200px]{img/SQUARE_16_16_16_101_-4.png}\\
 \end{center}
 
-Pour terminer, nous allons donc nous baser sur ces deux dernier perceptrons multicouche : 1: 1 couches de 16 noeuds et 2: 2 couches de 16 noeuds
+Pour continuer, nous allons donc nous baser sur ces deux dernier perceptrons multicouche : 1: 1 couches de 16 noeuds et 2: 2 couches de 16 noeuds
 
 \begin{center}
 Variation du Learning Rate\\
@@ -489,6 +489,25 @@ Perceptron multicouche : 2 couche de 16 noeuds.\\
 \includegraphics[height=200px]{img/SQUARE_16_16_101_m7.png}\\
 \end{center}
 
+\paragraph{}
+Après plus de recherche dans la documentation de Neuroph, il se trouve que les données de sortie ne peuvent pas être supérieur a 1.
+Je choisie donc de créer un nouveau dataset de 2001 exemples, de -100 à 100 avec un pas de 0.1 mais les données sont divisé par 10000 (dataset\_SQUARE\_2001.csv)
+
+Je test uniquement ce dataset avec un réseau d'une couche caché et 16 noeuds.
+
+\begin{center}
+\begin{tabular}{|l|c|}
+	\hline
+	Max Error & 0.00001 \\
+	\hline
+	Learning Rate & 0.2 \\
+	\hline
+	Momentum & 7 \\
+	\hline
+\end{tabular}
+\includegraphics[height=200px]{img/SQUARE_16_2001.png}\\
+\end{center}
+
 \subsubsection{Conclusion}
 Le dataset utilisé est très important. Lorsqu'il contient trop peu d'exemple, le réseau peut renvoyer des erreurs basse et pourtant ne pas réellement reproduire les effets demandé. Lorsqu'il contient trop d'exemple, le réseau devient lent, et a tendance a ne pas réussir a converger aussi facilement. Le juste milieu est difficile a trouvé, et dans mon cas, c'est uniquement des tests empirique qui m'ont permit de décider quel dataset utiliser.\\
 
@@ -500,8 +519,14 @@ La variation de tous les paramètres est importante, malheureusement il n'existe
 
 De nombreux tests effectués n'apparaissent pas dans ce rapport (faute de bon résultats) mais les 19 réseaux de neurones et les 10 ensemble de test sont disponibles dans le projet neuroph si nécessaire.
 
+Ce que je retiens, c'est que les réseau de neurone, sont encore très difficile a utiliser, pas a cause de la mise en oeuvre, mais parce qu'une grosse partie du problème reviens a faire des test empirique pour trouver une architecture viable pour le réseau.
+
 \chapter{Annexes}
 \section{NeurophStudio}
+De nombreux problème lié a l'utilisation du logiciel NeurophStudio on retardé l'avancement de ce rapport.
+Voici donc de petit conseil pour utiliser convenablement le logiciel.
 \subsection{Reset / Randomize}
-
+Pour reset ou randomize un réseau de neurone, la meilleur façon reste de le fermé, de le ré-ouvrir, de lui donné un training set, de lancé un première entraînement, de l'annule et de randomize ou reset le réseau. De cette façon, les poids devrait apparaître randomize ou reset a l'écran.
+\subsection{Format de données}
+Les données de sortie du perceptron multi-couche ne peuvent pas prendre n'importe quel valeur, il faut se renseigner préalablement sur la documentation pour les données.
 \end{document}
