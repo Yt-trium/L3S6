@@ -1,0 +1,5 @@
+set -v
+idlj -fall -oldImplBase ICouleur.idl
+javac ICouleurImpl.java 
+javac Serveur.java 
+javac Client.java 

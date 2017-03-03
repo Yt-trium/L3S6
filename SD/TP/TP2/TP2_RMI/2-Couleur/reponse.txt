@@ -1,0 +1,6 @@
+pkill rmiregistry
+rmiregistry 1234 &
+rm *.class
+javac *.java
+java Serveur 1234
+java Client 127.0.0.1 1234

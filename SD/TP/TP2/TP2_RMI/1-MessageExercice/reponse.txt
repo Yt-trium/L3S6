@@ -1,0 +1,7 @@
+Message hérite de java.rmi.Remote
+
+MessageImpl implémente Message
+
+Client utilise Message
+
+Serveur utilise MessageImpl

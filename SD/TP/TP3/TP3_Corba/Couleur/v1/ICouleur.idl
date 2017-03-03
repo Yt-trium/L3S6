@@ -1,0 +1,9 @@
+interface ICouleur
+{
+  void setColorRGB(in double red, in double green, in double blue) ;
+
+  double getLuminance() ;
+  double getC();
+  double getM();
+  double getY();
+} ;

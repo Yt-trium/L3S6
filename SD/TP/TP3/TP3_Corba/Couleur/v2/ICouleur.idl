@@ -1,0 +1,8 @@
+interface ICouleur
+{
+  oneway void setColorRGB(in double red, in double green, in double blue) ;
+  void getColorRGB(out double red, out double green, out double blue) ;
+
+  double getLuminance() ;
+  void getColorCMY(out double cyan, out double magenta, out double yellow) ;
+} ;
