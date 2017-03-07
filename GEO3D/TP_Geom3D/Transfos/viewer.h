@@ -63,7 +63,7 @@ protected:
 	Primitives m_prim;
 
 	//
-	int m_code;
+    int m_code;
 
 	 /**
 	 * @brief dessine un repere

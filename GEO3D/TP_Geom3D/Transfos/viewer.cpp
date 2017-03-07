@@ -15,7 +15,7 @@ Viewer::Viewer():
 	BLANC(1,1,1),
 	GRIS(0.5,0.5,0.5),
 	NOIR(0,0,0),
-	m_code(0)
+    m_code(3)
 {}
 
 
@@ -88,7 +88,7 @@ void Viewer::draw_repere(const Mat4& global)
 	//	fonction_locale(1.1f);
 
 
-    auto fleche = [&] (float x, float y, float z, Vec3 color)
+    auto fleche = [&] (float x, float y, float z, Vec3 color) -> void
     {
         Mat4 cyl = global * rotateX(x)*rotateY(y)*rotateZ(z)* scale(1,1,5)*translate(0,0,0.6);
         Mat4 con = global * rotateX(x)*rotateY(y)*rotateZ(z)* scale(2,2,2)*translate(0,0,3);
@@ -97,17 +97,79 @@ void Viewer::draw_repere(const Mat4& global)
         m_prim.draw_cone(con,color);
     };
 
+    auto fleche_ = [&] (Mat4 tr, Vec3 coul) -> void
+    {
+        m_prim.draw_cylinder(tr*translate(0,0,1.5)*scale(0.5,0.5,1.95),coul);
+        m_prim.draw_cone(tr*translate(0,0,3),coul);
+    };
+    /*
     fleche(0,90,0,ROUGE);
     fleche(-90,0,0,VERT);
     fleche(0,0,0,BLEU);
+    */
     m_prim.draw_sphere(global,BLANC);
+    fleche_(global,BLEU);
+    fleche_(global*rotateY(90),ROUGE);
+    fleche_(global*rotateX(-90),VERT);
 }
 
 
 
 void Viewer::draw_main()
 {
+    auto angle = [&] (int x) -> float
+    {
+        float y = x;
+        return y;
+    };
 
+    auto doigt = [&] (Mat4 tr, float longueur) -> void
+    {
+        /*
+        float alpha = angle(m_compteur);
+        m_prim.draw_cube(tr*translate(longueur/2+longueur*2,alpha/7,0)*rotateZ(3*alpha)*scale(longueur,0.5,1),BLEU);
+        m_prim.draw_sphere(tr*translate(longueur*2,0,0),BLANC);
+        m_prim.draw_cube(tr*translate(longueur/2+longueur,alpha/20,0)*rotateZ(2*alpha)*scale(longueur,0.5,1),VERT);
+        m_prim.draw_sphere(tr*translate(longueur,0,0),BLANC);
+        m_prim.draw_cube(tr*translate(longueur/2,alpha/100,0)*rotateZ(alpha)*scale(longueur,0.5,1),ROUGE);
+        m_prim.draw_sphere(tr,BLANC);
+        */
+        float a = angle(m_compteur);
+        m_prim.draw_sphere(tr, BLANC);
+        m_prim.draw_cube(tr*rotateZ(a)*translate(1.5,0,0)*scale(2.0,0.5,0.8),ROUGE);
+
+        tr *= rotateZ(a)*translate(3,0,0);
+
+        m_prim.draw_sphere(tr, BLANC);
+        m_prim.draw_cube(tr*rotateZ(a)*translate(1.5,0,0)*scale(2.0,0.5,0.8),VERT);
+
+        tr *= rotateZ(a)*translate(3,0,0);
+
+        m_prim.draw_sphere(tr, BLANC);
+        m_prim.draw_cube(tr*rotateZ(a)*translate(1.5,0,0)*scale(2.0,0.5,0.8),BLEU);
+
+    };
+
+    auto main = [&] (Mat4 tr) -> void
+    {
+        m_prim.draw_cube(tr*scale(4,0.5,4),CYAN);
+        doigt(tr*translate(2,0,-1.5)*rotateY(10),2.1);
+        doigt(tr*translate(2,0,0),2.2);
+        doigt(tr*translate(2,0,1.5)*rotateY(-5),2);
+        doigt(tr*translate(0,0,-2)*rotateY(70),1.2);
+    };
+    Mat4 base;
+    // doigt(base, 2);
+
+    m_prim.draw_sphere(base*translate(-17,0,0),BLANC);
+    m_prim.draw_cube(base*translate(-12.5,0,0)*scale(8,3,4),CYAN);
+
+    m_prim.draw_sphere(base,BLANC);
+
+    m_prim.draw_cube(base*translate(-4,0,0)*scale(8,1.5,2),CYAN);
+    m_prim.draw_sphere(base*translate(-8.25,0,0),BLANC);
+
+    main(base*translate(2.1,0,0));
 }
 
 void Viewer::draw_basic()
@@ -136,8 +198,13 @@ void Viewer::draw()
 		case 2:
             // coder ici les petits reperes qui tournet autour du grand repere
             draw_repere(glob);
-            draw_repere(rotateZ(10) * translate(10,0,0)*glob);
-            draw_repere(rotateZ(10) * translate(0,10,0)*glob);
+            for(int x = 0; x < 8 ; x++)
+                draw_repere(rotateZ(10)*
+                            rotateY(-m_compteur+45*x)*
+                            translate(6,0,0)*
+                            rotateY(-90)*
+                            rotateX(m_compteur)*
+                            scale(0.5,0.5,0.5));
 
 		break;
 		case 3:
@@ -190,9 +257,21 @@ void Viewer::keyPressEvent(QKeyEvent *e)
 
 void Viewer::animate()
 {
-	m_compteur += 1;
+    static int sens;
+    if(m_code == 3)
+    {
+        if(m_compteur == 0)
+            sens = 1;
+        if(m_compteur == 40)
+            sens = -1;
 
-	// faire varier les angles ici pour animer
+        m_compteur += sens;
+    }
+    else
+    {
+        m_compteur += 1;
+        m_compteur = m_compteur%360;
+    }
 }
 
 
