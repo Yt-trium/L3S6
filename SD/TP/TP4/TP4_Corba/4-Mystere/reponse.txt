@@ -1,0 +1,36 @@
+- Mystère -
+
+Comprendre et essayer les programmes Client et Serveur du repertoire 4-Mystere.
+Répondre aux questions suivantes dans le fichier reponse.txt :
+
+
+1. Expliquez succintement ce que font les deux programmes.
+
+Serveur implémente 3 Etudiants e1, e2, e3 et se met a disposition de Client en
+les bidant avec des NameComponent (id et kind).
+
+Le Client peut ensuite demander au serveur d'accéder a ces données avec le 3e
+paramètres
+
+
+2. Expliquez pourquoi la commande suivante renvoie un resultat valide :
+java Client localhost 3000 rep1/rep3/rep3/rep1/rep3/rep3/rep2/et2
+Résultat trouvé : Lesmemealamaison Leon-Jay
+
+nc1Name = rep1
+nc2Name = rep2
+nc3Name = rep3
+
+nc  ->  nc1 & nc2
+nc1 ->  nc3
+nc3 ->  nc
+
+et1 est bindé dans nc et nc1
+et2 est bindé dans nc2
+et3 est bindé dans nc3
+
+rep1/rep3/rep3/rep1/rep3/rep3/rep2/et2 est équivalent a rep2/et2
+rep1/rep3/rep3 <=> nc
+rep1/rep3/rep3/rep1/rep3/rep3 <=> nc
+
+rep1/rep3/rep3/rep1/rep3/rep3/rep2/et2 <=> rep2/et2

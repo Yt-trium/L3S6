@@ -1,0 +1,17 @@
+
+  interface  Compte
+	{
+    // Déposer un certain montant sur un compte
+    void deposeLiquide(in float Flottant) ;
+
+    // Retirer d’argent du compte (mais vous n’autorisez pas le découvert !)
+    boolean retireLiquide(in float Flottant) ;
+
+    // Afficher le montant deposé sur le compte
+    float afficheMontant() ;
+
+    // Virer une somme du compte courant vers le compte specifié en parametre.
+    // Si le montant du compte est insuffisant l’operation n’est pas realisée
+    // et false est retournée
+    boolean virementCompteaCompte(in float Flottant,in long Compte) ;
+  } ;
