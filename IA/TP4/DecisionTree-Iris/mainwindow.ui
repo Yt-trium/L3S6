@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Decision Tree - Iris</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="count_PB">
+      <property name="text">
+       <string>Count</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="totalEntropy_PB">
+      <property name="text">
+       <string>Total entropy</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" rowspan="6">
+     <widget class="QGroupBox" name="sort_GP">
+      <property name="title">
+       <string>Sort</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="SL_PB">
+         <property name="text">
+          <string>SL</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="SW_PB">
+         <property name="text">
+          <string>SW</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PL_PB">
+         <property name="text">
+          <string>PL</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="PW_PB">
+         <property name="text">
+          <string>PW</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="loadDatasets_PB">
+      <property name="text">
+       <string>Load datasets</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" rowspan="7">
+     <widget class="QListWidget" name="info_LW"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="part_PB">
+      <property name="text">
+       <string>Part</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="3">
+     <widget class="QTableWidget" name="datasets_TW">
+      <column>
+       <property name="text">
+        <string>sepal length</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>sepal width</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>petal length</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>petal width</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>iris class</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="partEntropy_PB">
+      <property name="text">
+       <string>Part entropy</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
