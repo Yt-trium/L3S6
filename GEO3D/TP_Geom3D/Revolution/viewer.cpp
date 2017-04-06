@@ -105,7 +105,7 @@ void Viewer::keyPressEvent(QKeyEvent *e)
 
 	// retrace la fenetre
 	updateGL();
-	QGLViewer::keyPressEvent(e);
+    // QGLViewer::keyPressEvent(e);
 }
 
 

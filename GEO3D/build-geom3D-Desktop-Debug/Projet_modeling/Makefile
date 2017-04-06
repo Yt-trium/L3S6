@@ -158,6 +158,8 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkit_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -309,6 +311,8 @@ Makefile: ../../TP_Geom3D/Projet_modeling/Projet_modeling.pro /usr/lib/qt/mkspec
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkit_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets_private.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri \
+		/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
@@ -450,6 +454,8 @@ Makefile: ../../TP_Geom3D/Projet_modeling/Projet_modeling.pro /usr/lib/qt/mkspec
 /usr/lib/qt/mkspecs/modules/qt_lib_webkit_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_webkitwidgets_private.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_websockets.pri:
+/usr/lib/qt/mkspecs/modules/qt_lib_websockets_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/qt/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:

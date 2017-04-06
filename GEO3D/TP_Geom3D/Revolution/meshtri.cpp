@@ -106,32 +106,68 @@ void MeshTri::draw_smooth(const Vec3& color)
 
 void MeshTri::clear()
 {
+    m_points.clear();
+    m_normals.clear();
+    m_indices.clear();
 }
 
 
 int MeshTri::add_vertex(const Vec3& P)
 {
-    return 0;
+    m_points.push_back(P);
+    return m_points.size()-1;
 }
 
 int MeshTri::add_normal(const Vec3& N)
 {
-    return 0;
+    m_normals.push_back(N);
+    return m_normals.size()-1;
 }
 
 void MeshTri::add_tri(int i1, int i2, int i3)
 {
+    m_indices.push_back(i1);
+    m_indices.push_back(i2);
+    m_indices.push_back(i3);
 }
 
 void MeshTri::add_quad(int i1, int i2, int i3, int i4)
 {
-	// decoupe le quad en 2 triangles: attention a l'ordre
+    // decoupe le quad en 2 triangles: attention a l'ordre
+
+    // Triangle 1
+    m_indices.push_back(i1);
+    m_indices.push_back(i2);
+    m_indices.push_back(i3);
+
+    // Triangle 2
+    m_indices.push_back(i1);
+    m_indices.push_back(i3);
+    m_indices.push_back(i4);
 }
 
 
 void MeshTri::create_pyramide()
 {
-	clear();
+    clear();
+    /*
+    Vec3 tmp0(-1,0,0), tmp1(1,0,0), tmp2(0,3,0), tmp3(2,3,0);
+    add_vertex(tmp0);
+    add_vertex(tmp1);
+    add_vertex(tmp2);
+    add_vertex(tmp3);
+    */
+    // add_tri(0, 1, 2);
+
+    Vec3 b0(-1,-1,-1),b1(-1,-1,1),b2(1,-1,1),b3(1,-1,-1),b4(0,1,0);
+    add_vertex(b0);add_vertex(b1);add_vertex(b2);add_vertex(b3);add_vertex(b4);
+
+    add_quad(3,2,1,0);
+
+    add_tri(0,1,4);
+    add_tri(1,2,4);
+    add_tri(2,3,4);
+    add_tri(3,0,4);
 
 	gl_update();
 }
@@ -140,12 +176,43 @@ void MeshTri::create_anneau()
 {
 	clear();
 
+    float alpha = 0.0;
+    for(alpha=0.0;alpha<=2*3.141592;alpha+=0.1)
+    {
+        add_vertex(Vec3(0.5*std::cos(alpha),0.5*std::sin(alpha),0));
+        add_vertex(Vec3(1.0*std::cos(alpha),1.0*std::sin(alpha),0));
+
+        add_quad(m_points.size()-4,m_points.size()-3,m_points.size()-1,m_points.size()-2);
+    }
+    add_quad(m_points.size()-2,m_points.size()-1,1,0);
+
 	gl_update();
 }
 
 void MeshTri::create_spirale()
 {
 	clear();
+
+    float alpha = 0.0;
+
+    add_vertex(Vec3(0.8,0,0));
+    add_vertex(Vec3(1,0,0));
+
+    for(alpha=0.0;alpha<=10*3.141592;alpha+=0.005)
+    {
+        add_vertex(Vec3( (0.8-(alpha/40))*std::cos(alpha)
+                        ,(0.8-(alpha/40))*std::sin(alpha)
+                        ,alpha/40));
+        add_vertex(Vec3( (1.0-(alpha/40))*std::cos(alpha)
+                        ,(1.0-(alpha/40))*std::sin(alpha)
+                        ,alpha/40));
+        /*
+        add_vertex(Vec3((alpha/30)*cos(alpha),(alpha/30)*sin(alpha),alpha/30));
+        add_vertex(Vec3(((alpha/30)+0.2)*cos(alpha),((alpha/30)+0.2)*sin(alpha),alpha/30));
+        */
+        add_quad(m_points.size()-4,m_points.size()-3,m_points.size()-1,m_points.size()-2);
+    }
+
 
 	gl_update();
 }

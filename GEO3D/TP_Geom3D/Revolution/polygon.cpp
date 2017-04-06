@@ -56,15 +56,19 @@ bool intersecte(const Vec3& A, const Vec3& B, const Vec3& C, const Vec3& D)
 
 void PolygonEditor::add_vertex(float x, float y)
 {
-
+    // Vertex = Sommet
+    Vec3 V(x,y,0);
+    m_points.push_back(V);
 }
 
 void PolygonEditor::remove_last()
 {
+    m_points.pop_back();
 }
 
 void PolygonEditor::clear()
 {
+    m_points.clear();
 }
 
 void PolygonEditor::lisse()
